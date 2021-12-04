@@ -1,0 +1,2 @@
+class pow:
+    pass
