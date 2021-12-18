@@ -30,5 +30,3 @@ def translate(text: str, lang: str) -> str or None:
     except HTTPError as http_err:  # server connection error
         print(f'Возникла ошибка сервера: {http_err}')
         return None
-
-print(translate('Hey! I am hungry', 'ru'))

@@ -6,6 +6,7 @@ lang = input('На каком языке нужен гороскоп? (en|fr|ru|
 sign = input('Введите знак: ').lower()
 day = input('Введите день: ').lower()
 
+
 horo = fetch_horoscope(sign, day)
 translated_horo = translate(horo, lang)
 print(translated_horo)
