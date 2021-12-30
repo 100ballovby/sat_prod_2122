@@ -1,5 +1,6 @@
 import sys
 import pygame as pg
+import random as r
 
 
 def setup() -> object:
@@ -11,6 +12,7 @@ def setup() -> object:
 
 def main(surface: object, updater: object) -> None:
     done = False
+    snowflakes = []
     while not done:
         surface.fill(pg.Color('cadetblue1'))
         for event in pg.event.get():
