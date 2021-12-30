@@ -25,8 +25,11 @@ def main(surface: object, updater: object) -> None:
             if (event.type == pg.QUIT) or (event.type == pg.KEYDOWN and event.key == pg.K_ESCAPE):
                 done = True
                 sys.exit()  # правильное ЗАКРЫТИЕ окна программы
-        for sf in snowflakes:
+        for i in range(len(snowflakes)):
+            sf = snowflakes[i]
+            snowflakes[i] = (sf[0] + r.randint(-1, 1), sf[1] + r.randint(1, 3))
             circle(surface, pg.Color('snow1'), (sf[0], sf[1]), r.randint(2, 6))  # размер каждой снежинки меняется
+
         pg.display.flip()  # обновление экрана
         updater.tick(60)  # FPS игры
 
