@@ -38,6 +38,8 @@ def main(surface: object, updater: object) -> None:
             circle(surface, pg.Color('snow'), (snowman_x, snowman_y), i * 30)
             snowman_y += i * 70
 
+
+
         for i in range(len(snowflakes)):
             sf = snowflakes[i]
             snowflakes[i] = (sf[0] + r.randint(-1, 1), sf[1] + r.randint(1, 3))
