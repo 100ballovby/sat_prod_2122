@@ -1,3 +1,4 @@
+import sys
 import pygame as pg
 
 
@@ -15,6 +16,7 @@ def main(surface: object, updater: object) -> None:
         for event in pg.event.get():
             if (event.type == pg.QUIT) or (event.type == pg.KEYDOWN and event.key == pg.K_ESCAPE):
                 done = True
+                sys.exit()  # правильное ЗАКРЫТИЕ окна программы
         pg.display.flip()  # обновление экрана
         updater.tick(60)  # FPS игры
 
