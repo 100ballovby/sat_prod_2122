@@ -26,8 +26,17 @@ def main(surface: object, updater: object) -> None:
                 done = True
                 sys.exit()  # правильное ЗАКРЫТИЕ окна программы
 
+        # ground
         rect(surface, pg.Color('snow'), (0, 0.75 * surface.get_height(),
                                           surface.get_width(), 0.25 * surface.get_height()))
+
+        # snowman
+        snowman_y = 0.5 * surface.get_height()
+        snowman_x = 0.3 * surface.get_width()
+        rect(surface, pg.Color('red'), (snowman_x - 20, snowman_y - 50, 40, 42))
+        for i in range(1, 4):
+            circle(surface, pg.Color('snow'), (snowman_x, snowman_y), i * 30)
+            snowman_y += i * 70
 
         for i in range(len(snowflakes)):
             sf = snowflakes[i]
