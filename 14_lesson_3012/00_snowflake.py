@@ -20,15 +20,19 @@ def main(surface: object, updater: object) -> None:
         snowflakes.append((x, y))
 
     while not done:
-        surface.fill(pg.Color('cadetblue1'))
+        surface.fill(pg.Color('lightblue'))
         for event in pg.event.get():
             if (event.type == pg.QUIT) or (event.type == pg.KEYDOWN and event.key == pg.K_ESCAPE):
                 done = True
                 sys.exit()  # правильное ЗАКРЫТИЕ окна программы
+
+        rect(surface, pg.Color('snow'), (0, 0.75 * surface.get_height(),
+                                          surface.get_width(), 0.25 * surface.get_height()))
+
         for i in range(len(snowflakes)):
             sf = snowflakes[i]
             snowflakes[i] = (sf[0] + r.randint(-1, 1), sf[1] + r.randint(1, 3))
-            circle(surface, pg.Color('snow1'), (sf[0], sf[1]), r.randint(2, 6))  # размер каждой снежинки меняется
+            circle(surface, pg.Color('snow2'), (sf[0], sf[1]), r.randint(2, 6))  # размер каждой снежинки меняется
             if sf[1] > surface.get_height():  # если y снежинки больше высоты экрана
                 snowflakes[i] = (sf[0], 0)  # не трогаем x и перемещаем снежинку наверх
         pg.display.flip()  # обновление экрана
