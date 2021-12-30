@@ -14,7 +14,7 @@ def setup() -> object:
 def main(surface: object, updater: object) -> None:
     done = False
     snowflakes = []
-    for i in range(150):  # рисую много снежинок
+    for i in range(500):  # рисую много снежинок
         x = r.randint(0, surface.get_width())
         y = r.randint(0, surface.get_height())
         snowflakes.append((x, y))
