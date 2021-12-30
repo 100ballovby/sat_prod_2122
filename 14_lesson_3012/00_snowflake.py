@@ -1,7 +1,7 @@
 import sys
 import pygame as pg
 import random as r
-from pygame.draw import circle
+from pygame.draw import circle, rect
 
 
 def setup() -> object:
@@ -29,7 +29,8 @@ def main(surface: object, updater: object) -> None:
             sf = snowflakes[i]
             snowflakes[i] = (sf[0] + r.randint(-1, 1), sf[1] + r.randint(1, 3))
             circle(surface, pg.Color('snow1'), (sf[0], sf[1]), r.randint(2, 6))  # размер каждой снежинки меняется
-
+            if sf[1] > surface.get_height():  # если y снежинки больше высоты экрана
+                snowflakes[i] = (sf[0], 0)  # не трогаем x и перемещаем снежинку наверх
         pg.display.flip()  # обновление экрана
         updater.tick(60)  # FPS игры
 
